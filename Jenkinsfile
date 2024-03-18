@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven
+        mave 'maven-3.6.3'
     }
 
     environment {
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 // Authenticate with Docker registry
                 withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                    sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                    sh "docker login -u rnavindevops -p Naveen@1993"
                     // Build Docker image
                     sh "docker build -t rnavindevops/bankingproject:1.0 ."
                 }
@@ -47,7 +47,7 @@ pipeline {
             steps {
                 script {
                     kubeconfig(credentialsId: 'k8s', serverUrl: '') {
-                        sh 'kubectl apply -f kubernetesdeploy.yaml'
+                        sh 'kubectl apply -f kubernetesdeploy.yml'
                     }
                 }
             }
