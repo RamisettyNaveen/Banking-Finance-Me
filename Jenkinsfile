@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'maven-3.6.3'
-    }
-
     environment {
         DOCKER_CREDENTIALS_ID = 'docker-login-credentials' // Corrected Docker credentials ID
     }
