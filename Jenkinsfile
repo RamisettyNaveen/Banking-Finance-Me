@@ -42,7 +42,7 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    kubeconfig(credentialsId: 'k8s', serverUrl: '') {
+                    kubeconfig(credentialsId: 'k8s', serverUrl: 'https://172.31.37.92:6443') {
                         sh 'kubectl apply -f kubernetesdeploy.yml'
                     }
                 }
