@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('SCM Checkout') {
             steps {
-                git 'https://github.com/RamisettyNaveen/BankingApp-Project.git'
+               // git 'https://github.com/RamisettyNaveen/BankingApp-Project.git'
                 checkout scm
             }
         }
